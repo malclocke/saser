@@ -7,11 +7,12 @@ import dateutil
 from specreduce.specreduce import BessSpectra
 
 env = Environment(loader=FileSystemLoader('templates'))
-template = env.get_template('campaign.html')
 
 site_dir = 'site'
 campaign_dir = sys.argv[1]
 title = sys.argv[2]
+
+template = env.get_template(campaign_dir + '.html')
 
 fits_dir = os.path.join(campaign_dir, 'fits')
 index_html = os.path.join(site_dir, campaign_dir, 'index.html')

@@ -3,7 +3,11 @@
 
 {% block content %}
 <h1 class="page-header">{{title}}</h1>
-<table class="table">
+
+{% block preamble %}{% endblock %}
+
+<h2>Spectra</h2>
+<table class="table table-condensed">
     <thead>
         <tr>
             <th>Date</th>
@@ -18,7 +22,7 @@
             <th>{{ spectrum.header()['DATE-OBS'] }}</th>
             <th>{{ spectrum.header()['OBSERVER'] }}</th>
             <th>{{ "%d - %d"|format(spectrum.wavelengths()[0], spectrum.wavelengths()[-1]) }}</th>
-            <th><a class="btn btn-primary" href="/{{filename}}"><span class="glyphicon glyphicon-download"></span> Download</a></th>
+            <th><a class="btn btn-primary btn-sm" href="/{{filename}}"><span class="glyphicon glyphicon-download"></span> Download</a></th>
         </tr>
     {% endfor %}
     </tbody>
