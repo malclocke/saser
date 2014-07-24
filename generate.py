@@ -10,7 +10,6 @@ env = Environment(loader=FileSystemLoader('templates'))
 
 site_dir = 'site'
 campaign_dir = sys.argv[1]
-title = sys.argv[2]
 
 template = env.get_template(campaign_dir + '.html')
 
@@ -25,5 +24,4 @@ sorted_spectra = sorted(
         zip(files, spectra), key=lambda tup: tup[1].header()['DATE-OBS'])
 
 with open(index_html, 'w') as fh:
-    fh.write(template.render(
-        title=title, spectra=sorted_spectra, zipfilename=zipfilename))
+    fh.write(template.render(spectra=sorted_spectra, zipfilename=zipfilename))
