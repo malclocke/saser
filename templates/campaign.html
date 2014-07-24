@@ -18,11 +18,21 @@
     <tbody>
     {% for (filename, spectrum) in spectra %}
         <tr>
-            <td><a href="/{{filename}}.png"><img src="/{{filename}}.thumb.png"></a></td>
-            <td>{{ spectrum.header()['DATE-OBS'] }}</td>
-            <td>{{ spectrum.header()['OBSERVER'] }}</td>
-            <td>{{ "%d - %d"|format(spectrum.wavelengths()[0], spectrum.wavelengths()[-1]) }}</td>
-            <td><a class="btn btn-primary btn-sm" href="/{{filename}}"><span class="glyphicon glyphicon-download"></span> Download</a></td>
+          <td>
+            <a data-toggle="modal" data-target="#modal_{{loop.index}}" href=""><img src="/{{filename}}.thumb.png"></a>
+            <div id="modal_{{loop.index}}" class="modal fade" tabindex="-1"
+              role="dialog">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <img class="center-block" src="/{{filename}}.png">
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>{{ spectrum.header()['DATE-OBS'] }}</td>
+          <td>{{ spectrum.header()['OBSERVER'] }}</td>
+          <td>{{ "%d - %d"|format(spectrum.wavelengths()[0], spectrum.wavelengths()[-1]) }}</td>
+          <td><a class="btn btn-primary btn-sm" href="/{{filename}}"><span class="glyphicon glyphicon-download"></span> Download</a></td>
         </tr>
     {% endfor %}
     </tbody>
