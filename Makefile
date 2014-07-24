@@ -6,7 +6,10 @@ ZIPS = site/eta_car_periastron_2014.zip \
 			 site/wr71.zip \
 			 site/u_tra.zip
 
-all: $(INDEXES) $(ZIPS)
+PLOTS := $(patsubst %,%.png,$(wildcard site/*/fits/*.fit))
+THUMBS := $(patsubst %,%.thumb.png,$(wildcard site/*/fits/*.fit))
+
+all: $(INDEXES) $(ZIPS) $(PLOTS) $(THUMBS)
 
 clean:
 	rm -f $(INDEXES) $(ZIPS)
@@ -21,3 +24,9 @@ site/%/index.html: site/%/fits/*
 
 sync:
 	rsync -vax site/ bollo:websites/saser.wholemeal.co.nz/
+
+%.thumb.png: %
+	./plot_image.py --compact --width 50 --height 50 $< $@
+
+%.png: %
+	./plot_image.py $< $@

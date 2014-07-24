@@ -17,7 +17,7 @@ fits_dir = os.path.join(campaign_dir, 'fits')
 index_html = os.path.join(site_dir, campaign_dir, 'index.html')
 zipfilename = campaign_dir + '.zip'
 
-files = [os.path.join(fits_dir, f) for f in os.listdir(os.path.join(site_dir,fits_dir))]
+files = [os.path.join(fits_dir, f) for f in os.listdir(os.path.join(site_dir,fits_dir)) if f.endswith('.fit')]
 hdulists = [pyfits.open(os.path.join(site_dir, f)) for f in files]
 spectra = [BessSpectra(hdulist) for hdulist in hdulists]
 sorted_spectra = sorted(
