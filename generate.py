@@ -21,7 +21,8 @@ files = [os.path.join(fits_dir, f) for f in os.listdir(os.path.join(site_dir,fit
 hdulists = [pyfits.open(os.path.join(site_dir, f)) for f in files]
 spectra = [BessSpectra(hdulist) for hdulist in hdulists]
 sorted_spectra = sorted(
-        zip(files, spectra), key=lambda tup: tup[1].header()['DATE-OBS'])
+        zip(files, spectra), reverse=True,
+        key=lambda tup: tup[1].header()['DATE-OBS'])
 
 with open(index_html, 'w') as fh:
     fh.write(template.render(spectra=sorted_spectra, zipfilename=zipfilename))

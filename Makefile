@@ -14,7 +14,7 @@ all: $(INDEXES) $(ZIPS) $(PLOTS) $(THUMBS)
 clean:
 	rm -f $(INDEXES) $(ZIPS)
 
-site/%.zip: site/%/fits/*
+site/%.zip: site/%/fits/*.fit
 	rm -f $@
 	zip -r -j $@ $^
 

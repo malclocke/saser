@@ -7,13 +7,13 @@
 <h2>Spectra</h2>
 <table class="table table-condensed">
     <thead>
-        <tr>
-            <th></th>
-            <th>Date</th>
-            <th>Observer</th>
-            <th>Range</th>
-            <th></th>
-        </tr>
+      <tr>
+        <th></th>
+        <th>Date</th>
+        <th>Observer</th>
+        <th>Range</th>
+        <th><a class="btn btn-primary" href="/{{zipfilename}}"><span class="glyphicon glyphicon-compressed"></span> Download all (zip)</a></th>
+      </tr>
     </thead>
     <tbody>
     {% for (filename, spectrum) in spectra %}
