@@ -25,4 +25,5 @@ sorted_spectra = sorted(
         key=lambda tup: tup[1].header()['DATE-OBS'])
 
 with open(index_html, 'w') as fh:
-    fh.write(template.render(spectra=sorted_spectra, zipfilename=zipfilename))
+    fh.write(template.render(
+        spectra=sorted_spectra, zipfilename=zipfilename, spectra_count=len(sorted_spectra)))
