@@ -9,7 +9,8 @@
     <thead>
       <tr>
         <th></th>
-        <th>Date</th>
+        <th>JD</th>
+        <th>Date UTC</th>
         <th>Observer</th>
         <th>Range</th>
         <th><a class="btn btn-primary" href="/{{zipfilename}}"><span class="glyphicon glyphicon-compressed"></span> Download all {{spectra_count}} (zip)</a></th>
@@ -29,6 +30,7 @@
               </div>
             </div>
           </td>
+          <td>{{ spectrum.header()['JD-MID'] }}</td>
           <td>{{ spectrum.header()['DATE-OBS'] }}</td>
           <td>{{ spectrum.header()['OBSERVER'] }}</td>
           <td>{{ "%d - %d"|format(spectrum.wavelengths()[0], spectrum.wavelengths()[-1]) }}</td>
