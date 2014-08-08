@@ -1,0 +1,92 @@
+I want to share with you the scheme for observations we have used lately.
+Of course, you can follow your own procedures. The only critical point we 
+should agree is the flattening of the continuum. Any fitting of the 
+continuum of eta Car is harmful. This must be done always for the comparison 
+star (A-Type).
+
+regards
+Augusto
+
+------------------------------------
+1-Daylight calibrations:
+We take 100 bias and immediately after 20 dome flats. We calculate the 
+median combination of each set, subtract the median bias from the median 
+flat and divide the result for the average (or mode) of the image. We use 
+that normalised flat to correct for the pixel to pixel response and also for 
+the illumination pattern which arrives to the CCD. We have seen some low 
+frequency wiggles in the flatfield image.
+We have seen that with this CCD, a smaller number of bias images introduces 
+noise, limiting the final S/N of the spectra.
+
+When we divide the A-type star image spectrum by the normalised flatfield, 
+the continuum is also a straight line and can be fitted by a low order 
+polynomial: Legendre 3-5. Of course, we skip the stellar lines to fit the 
+continuum, just stating the number of sigmas to reject (normally sigma=3).
+
+2- Scheme for observations:
+-eta Carinae
+3 short exposures - 90 seconds- to avoid saturation of the H-beta line plus 
+3 deep exposures - 600 seconds (H-beta saturated) to get high 
+signal-to-noise at the stellar continuum.  With our observational setup, in 
+a clear sky we get S/N~400. One HeAr or NeAr spectrum before and one after 
+the set of exposures.
+
+Standard star
+- 3 exposures of the A-type star. The S/N doesn't need to be high, since the 
+continuum will be fitted. The most relevant thing is to put the comparison 
+star exactly on the same pixel as eta Car, to be affected in the same way by 
+the illumination distortions. we take one HeAr spectrum after the standard 
+star images.
+
+3- Data reduction
+We use IRAF, but it any other software using the same mathematical approach 
+would work well.
+- We trace the light dispersed in the wavelength direction and co-add the 
+the columns to extract the spectral vector. Tracing the aperture is relevant 
+when the spectrum is not exactly parallel to the CCD rows. We subtract the 
+sky from both sides of the dispersed light, by fitting a 1rst order 
+polynomial, interpolated to the position of each CCD row, along the 
+dispersion direction. Only then we add up the rows and extract the spectral 
+vector (intensity X pixel).
+We extract the spectrum of the HeAr lamp following exactly the same aperture 
+used to sum the stellar spectrum.
+Then, we calibrate in Angstroms with a polynomial (Legendre) degree 2-3 
+(equivalent to Chebyshev 3-4th order).
+
+Since the spectrograph works in a inclined position, there internal, flexure 
+impact the precision of the wavelength calibration. However, for eta 
+Carinae, this is not relevant, since we know the wavelength of some FeII 
+lines, like the one at 4727A and shift the zero point of the spectrum to 
+that of that line (measured with a Coude spectrograph, which is much more 
+precise). For the moment, I use the peak of that line as 4727.5 - but I'll 
+do a better job later...
+
+After dividing the eta Car spectrum by the polynomial fit of the A-type 
+star, we get the spectrum normalised in a very precise way. The continuum 
+does not follow a straight line, but we leave it in that form. In this way, 
+all other spectra, taken by different observers, can be plotted one on top 
+of the other just by dividing each spectrum by a constant.
+
+In the past, I felt on temptation to fit a polynomial through eta Car's 
+spectrum, to get it straight… however, I see that this is not a good 
+procedure, since it depends on where you believe the stellar continuum is. 
+For eta Car, we never know where is the continuum….  and specially close to 
+HeII4686 there are places which looks like a continuum, but whose level 
+changes along the periastron, indicating that they are affected by broad 
+line wings. Far from the periastron, the line wings are stable.
+
+============================================================
+z/ 
+
+
+---
+This email is free from viruses and malware because avast! Antivirus protection is active.
+http://www.avast.com
+
+
+_______________________________________________
+Saser mailing list
+Saser@lists.wholemeal.co.nz
+http://lists.wholemeal.co.nz/cgi-bin/mailman/listinfo/saser
+
+SASER spectra archive: http://saser.wholemeal.co.nz/
