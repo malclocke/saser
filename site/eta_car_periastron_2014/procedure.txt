@@ -75,18 +75,3 @@ HeII4686 there are places which looks like a continuum, but whose level
 changes along the periastron, indicating that they are affected by broad 
 line wings. Far from the periastron, the line wings are stable.
 
-============================================================
-z/ 
-
-
----
-This email is free from viruses and malware because avast! Antivirus protection is active.
-http://www.avast.com
-
-
-_______________________________________________
-Saser mailing list
-Saser@lists.wholemeal.co.nz
-http://lists.wholemeal.co.nz/cgi-bin/mailman/listinfo/saser
-
-SASER spectra archive: http://saser.wholemeal.co.nz/
