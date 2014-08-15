@@ -9,7 +9,10 @@ ZIPS = site/eta_car_periastron_2014.zip \
 PLOTS := $(patsubst %,%.png,$(wildcard site/*/fits/*.fit))
 THUMBS := $(patsubst %,%.thumb.png,$(wildcard site/*/fits/*.fit))
 
-all: $(INDEXES) $(ZIPS) $(PLOTS) $(THUMBS)
+all: site/index.html $(INDEXES) $(ZIPS) $(PLOTS) $(THUMBS)
+
+site/index.html: templates/index.html templates/base.html
+	./generate_static.py index.html site/index.html
 
 clean:
 	rm -f $(INDEXES) $(ZIPS)
