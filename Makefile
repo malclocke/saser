@@ -23,7 +23,7 @@ site/%.zip: site/%/fits/*.fit
 	rm -f $@
 	zip -r -j $@ $^
 
-site/%/index.html: site/%/fits/* templates/campaign.html templates/base.html
+site/%/index.html: site/%/fits/* templates/*.html
 	chmod 644 site/$*/fits/*
 	./generate.py $*
 
