@@ -1,10 +1,12 @@
 INDEXES = site/eta_car_periastron_2014/index.html \
 					site/wr71/index.html \
 					site/zet_pup/index.html \
+					site/gamma-2_vel/index.html \
 					site/u_tra/index.html
 
 ZIPS = site/eta_car_periastron_2014.zip \
 			 site/wr71.zip \
+			 site/gamma-2_vel.zip \
 			 site/zet_pup.zip \
 			 site/u_tra.zip
 
