@@ -13,6 +13,7 @@
         <th>Date UTC</th>
         <th>Observer</th>
         <th>Range</th>
+        <th>R</th>
         <th><a class="btn btn-primary" href="/{{zipfilename}}"><span class="glyphicon glyphicon-compressed"></span> Download all {{spectra_count}} (zip)</a></th>
       </tr>
     </thead>
@@ -34,6 +35,7 @@
           <td>{{ spectrum.header()['DATE-OBS'] }}</td>
           <td>{{ spectrum.header()['OBSERVER'] }}</td>
           <td>{{ "%d - %d"|format(spectrum.wavelengths()[0], spectrum.wavelengths()[-1]) }}</td>
+          <td>{{ spectrum.r()|default('-') }}</td>
           <td><a class="btn btn-primary btn-sm" href="/{{filename}}"><span class="glyphicon glyphicon-download"></span> Download</a></td>
         </tr>
     {% endfor %}
