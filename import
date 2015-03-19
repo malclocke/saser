@@ -3,71 +3,25 @@
 BASEDIR=${BASEDIR-/home/malc/astro/saser}
 
 dirname_from_objname() {
-  case "$1" in
-    "HD66811 ")
-      echo zet_pup
-      ;;
-    "Zeta Pup")
-      echo zet_pup
-      ;;
-    "zeta puppis")
-      echo zet_pup
-      ;;
-    "Zeta Puppis")
-      echo zet_pup
-      ;;
-    "zet pup")
-      echo zet_pup
-      ;;
-    "zeta pup")
-      echo zet_pup
-      ;;
-    zet_pup)
-      echo zet_pup
-      ;;
-    "zet Pup")
-      echo zet_pup
-      ;;
-    "Zet pup")
-      echo zet_pup
-      ;;
-    zp)
-      echo zet_pup
-      ;;
-    zp600)
-      echo zet_pup
-      ;;
-    "zet Pup ")
-      echo zet_pup
-      ;;
-    "gam2 Vel")
-      echo gamma-2_vel
-      ;;
-    "Gam2 Vel")
-      echo gamma-2_vel
-      ;;
-    "Gamma2 Vel")
-      echo gamma-2_vel
-      ;;
-    "Gamma 2 Velorum")
-      echo gamma-2_vel
-      ;;
-    "gamma velorum")
-      echo gamma-2_vel
-      ;;
-    "gam vel")
-      echo gamma-2_vel
-      ;;
-    "Gam Vel")
-      echo gamma-2_vel
-      ;;
-    "HD68273 ")
-      echo gamma-2_vel
-      ;;
-    "Gamma Vel")
-      echo gamma-2_vel
-      ;;
-  esac
+  if echo $1 | egrep -iq '^HD66811\s*$' ; then 
+    echo zet_pup 
+    return
+  fi 
+   
+  if echo $1 | egrep -iq '^zeta? pup(pis)?\s*$' ; then 
+    echo zet_pup 
+    return
+  fi 
+   
+  if echo $1 | egrep -iq '^HD68273\s*$' ; then 
+    echo 'gamma-2_vel' 
+    return
+  fi 
+   
+  if echo $1 | egrep -iq '^gam(ma)?\s*2?\s*vel(orum)?\s*$' ; then 
+    echo 'gamma-2_vel' 
+    return
+  fi
 }
 
 process_spectrum() {
