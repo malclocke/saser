@@ -1,0 +1,109 @@
+#!/bin/bash
+
+BASEDIR=${BASEDIR-/home/malc/astro/saser}
+
+dirname_from_objname() {
+  case "$1" in
+    "HD66811 ")
+      echo zet_pup
+      ;;
+    "Zeta Pup")
+      echo zet_pup
+      ;;
+    "zeta puppis")
+      echo zet_pup
+      ;;
+    "Zeta Puppis")
+      echo zet_pup
+      ;;
+    "zet pup")
+      echo zet_pup
+      ;;
+    "zeta pup")
+      echo zet_pup
+      ;;
+    zet_pup)
+      echo zet_pup
+      ;;
+    "zet Pup")
+      echo zet_pup
+      ;;
+    "Zet pup")
+      echo zet_pup
+      ;;
+    zp)
+      echo zet_pup
+      ;;
+    zp600)
+      echo zet_pup
+      ;;
+    "zet Pup ")
+      echo zet_pup
+      ;;
+    "gam2 Vel")
+      echo gamma-2_vel
+      ;;
+    "Gam2 Vel")
+      echo gamma-2_vel
+      ;;
+    "Gamma2 Vel")
+      echo gamma-2_vel
+      ;;
+    "Gamma 2 Velorum")
+      echo gamma-2_vel
+      ;;
+    "gamma velorum")
+      echo gamma-2_vel
+      ;;
+    "gam vel")
+      echo gamma-2_vel
+      ;;
+    "Gam Vel")
+      echo gamma-2_vel
+      ;;
+    "HD68273 ")
+      echo gamma-2_vel
+      ;;
+    "Gamma Vel")
+      echo gamma-2_vel
+      ;;
+  esac
+}
+
+process_spectrum() {
+  filename=$1
+  objname=$2
+  observer=$3
+
+  echo "filename='$filename'"
+  echo "objname='$objname'"
+  echo "observer='$observer'"
+
+  dirname=$(dirname_from_objname "$objname")
+  if [ -z "$dirname" ] ; then
+    printf "FATAL: %s: Unable to determine dirname from OBJNAME %s" $filename $objname
+    exit 1
+  fi
+  echo $dirname
+  
+  basename=`basename $filename`
+  mv -v $filename $BASEDIR/site/$dirname/fits/$basename
+  echo "${dirname//_/ } from $observer"
+}
+
+set -e
+
+count=0
+
+while read line ; do
+  filename=`echo -e "$line" | cut -f 1`
+  objname=`echo -e "$line" | cut -f 2`
+  observer=`echo -e "$line" | cut -f 3`
+  date=`echo -e "$line" | cut -f 4  | cut -d T -f 1`
+  process_spectrum "$filename" "$objname" "$observer"
+  count=$(($count+1))
+done < <(dfits $@ | fitsort -d OBJNAME OBSERVER DATE-OBS)
+
+make
+git add site/
+git commit -v -m "${objname} from ${observer} ${date}" -e
