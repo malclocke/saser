@@ -22,6 +22,11 @@ dirname_from_objname() {
     echo 'gamma-2_vel' 
     return
   fi
+
+  if echo $1 | egrep -iq '^HD139966B\s*$' ; then
+    echo 'hh_nor'
+    return
+  fi
 }
 
 process_spectrum() {
