@@ -1,4 +1,22 @@
 {% extends "campaign.html" %}
 {% block title %}HH Nor{% endblock %}
 {% block preamble %}
+<p>
+HH Nor is an RR Lyrae star, previously incorrectly identified as an eclipsing
+binary.  Time series spectra are required to cover several pulsation cycles.
+</p>
+<ul>
+  <li>HH Nor (RA=15:43:29.4 Dec=-51:50:37.5) is actually a
+  visual double star, there is an eclipsing binary nearby (separation is 12''6).
+  The brighter one (changing betweeen 8.8 and 9.3 mag) is the RR Lyrae
+  component.</li>
+  <li>The pulsation period is ~0.6 days.</li>
+  <li>Preferred wavelength range is 5800-6700A</li>
+  <li>Ideally R &gt; 6000, S/N at least ~40-50.</li>
+  <li>If limited by instrumentation, it is preferable to sacrifice R for wider
+  wavelength coverage, down to a limit of R ~ 3500.</li>
+  <li>Please keep integrations below 1800 seconds to ensure temporal changes
+  are not lost.</li>
+</ul>
+<p>The project PI is <a href="http://www.konkoly.hu/staff/derekas.shtml">Aliz Derekaz</a></p>
 {% endblock %}

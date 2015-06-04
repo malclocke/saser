@@ -23,7 +23,22 @@ dirname_from_objname() {
     return
   fi
 
+  if echo $1 | egrep -iq '^HD143999\s*$' ; then
+    echo 'u_tra'
+    return
+  fi
+
+  if echo $1 | egrep -iq '^u\stra\s*$' ; then
+    echo 'u_tra'
+    return
+  fi
+
   if echo $1 | egrep -iq '^HD139966B\s*$' ; then
+    echo 'hh_nor'
+    return
+  fi
+
+  if echo $1 | egrep -iq '^hh\snor\s*$' ; then
     echo 'hh_nor'
     return
   fi
