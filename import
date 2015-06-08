@@ -33,7 +33,7 @@ dirname_from_objname() {
     return
   fi
 
-  if echo $1 | egrep -iq '^HD139966B\s*$' ; then
+  if echo $1 | egrep -iq '^HD139966\s*$' ; then
     echo 'hh_nor'
     return
   fi
