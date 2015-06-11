@@ -42,6 +42,12 @@ dirname_from_objname() {
     echo 'hd139966'
     return
   fi
+
+  if echo $1 | egrep -iq '^HD150798\s*$' ; then
+    echo 'alp_tra'
+    return
+  fi
+
 }
 
 process_spectrum() {
