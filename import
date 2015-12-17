@@ -48,6 +48,11 @@ dirname_from_objname() {
     return
   fi
 
+  if echo $1 | egrep -iq '^alp(ha)? tra\s*$' ; then
+    echo 'alp_tra'
+    return
+  fi
+
 }
 
 process_spectrum() {
