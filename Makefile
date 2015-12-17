@@ -37,7 +37,7 @@ site/%/index.html: site/%/fits/* templates/*.html
 	./generate.py $*
 
 sync:
-	rsync -vax site/ bollo:websites/saser.wholemeal.co.nz/
+	rsync -vax site/ vince:websites/saser.wholemeal.co.nz/
 
 %.thumb.png: %
 	./plot_image.py --compact --width 50 --height 50 $< $@
