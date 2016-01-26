@@ -58,6 +58,16 @@ dirname_from_objname() {
     return
   fi
 
+  if echo $1 | egrep -iq '^HD50896\s*$' ; then
+    echo 'wr6'
+    return
+  fi
+
+  if echo $1 | egrep -iq '^HD57060\s*$' ; then
+    echo 'uw_cma'
+    return
+  fi
+
 }
 
 process_spectrum() {
