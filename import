@@ -53,7 +53,7 @@ dirname_from_objname() {
     return
   fi
 
-  if echo $1 | egrep -iq '^WR6\s*$' ; then
+  if echo $1 | egrep -iq '^WR\s?6\s*$' ; then
     echo 'wr6'
     return
   fi
