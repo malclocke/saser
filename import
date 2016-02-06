@@ -68,6 +68,11 @@ dirname_from_objname() {
     return
   fi
 
+  if echo $1 | egrep -iq '^UW\s?CMA\s*$' ; then
+    echo 'uw_cma'
+    return
+  fi
+
 }
 
 process_spectrum() {
