@@ -3,6 +3,17 @@
 BASEDIR=${BASEDIR-/home/malc/astro/saser}
 
 dirname_from_objname() {
+
+  if echo $1 | egrep -iq '^HD93308\s*$' ; then
+    echo eta_car_periastron_2014
+    return
+  fi
+
+  if echo $1 | egrep -iq '^eta ?car\s*$' ; then
+    echo eta_car_periastron_2014
+    return
+  fi
+
   if echo $1 | egrep -iq '^HD66811\s*$' ; then 
     echo zet_pup 
     return
