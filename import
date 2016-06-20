@@ -84,6 +84,16 @@ dirname_from_objname() {
     return
   fi
 
+  if echo $1 | egrep -iq '^HD166937\s*$' ; then
+    echo 'mu_sgr'
+    return
+  fi
+
+  if echo $1 | egrep -iq '^mu\s?sgr\s*$' ; then
+    echo 'mu_sgr'
+    return
+  fi
+
 }
 
 process_spectrum() {

@@ -6,6 +6,7 @@ INDEXES = site/eta_car_periastron_2014/index.html \
 					site/alp_tra/index.html \
 					site/wr6/index.html \
 					site/uw_cma/index.html \
+					site/mu_sgr/index.html \
 					site/hd139966/index.html
 
 ZIPS = site/eta_car_periastron_2014.zip \
@@ -16,6 +17,7 @@ ZIPS = site/eta_car_periastron_2014.zip \
 			 site/alp_tra.zip \
 			 site/wr6.zip \
 			 site/uw_cma.zip \
+			 site/mu_sgr.zip \
 			 site/hd139966.zip
 
 PLOTS := $(patsubst %,%.png,$(wildcard site/*/fits/*.fit))
