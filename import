@@ -9,7 +9,7 @@ dirname_from_objname() {
     return
   fi
 
-  if echo $1 | egrep -iq '^eta ?car\s*$' ; then
+  if echo $1 | egrep -iq '^eta[ _]?car\s*$' ; then
     echo eta_car_periastron_2014
     return
   fi
@@ -89,7 +89,7 @@ dirname_from_objname() {
     return
   fi
 
-  if echo $1 | egrep -iq '^mu\s?sgr\s*$' ; then
+  if echo $1 | egrep -iq '^mu[\s_]?sgr\s*$' ; then
     echo 'mu_sgr'
     return
   fi
