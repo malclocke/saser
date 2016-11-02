@@ -89,7 +89,7 @@ dirname_from_objname() {
     return
   fi
 
-  if echo $1 | egrep -iq '^mu[\s_]?sgr\s*$' ; then
+  if echo $1 | egrep -iq '^mu[ _]?sgr\s*$' ; then
     echo 'mu_sgr'
     return
   fi
