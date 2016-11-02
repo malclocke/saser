@@ -132,4 +132,4 @@ done < <(dfits $@ | fitsort -d OBJNAME OBSERVER DATE-OBS)
 
 make
 git add site/
-git commit -v -m "${objname} from ${observer} ${date}" -e
+git commit -v -m "${objname} from ${observer} ${date}"
