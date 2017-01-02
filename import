@@ -19,7 +19,7 @@ dirname_from_objname() {
     return
   fi 
    
-  if echo $1 | egrep -iq '^zeta? pup(pis)?\s*$' ; then 
+  if echo $1 | egrep -iq '^zeta? ?pup(pis)?\s*$' ; then
     echo zet_pup 
     return
   fi 
