@@ -89,7 +89,7 @@ dirname_from_objname() {
     return
   fi
 
-  if echo $1 | egrep -iq '^mu[ _]?sgr\s*$' ; then
+  if echo $1 | egrep -iq '^mu\.?[ _]?sgr.*$' ; then
     echo 'mu_sgr'
     return
   fi
@@ -107,7 +107,7 @@ process_spectrum() {
 
   dirname=$(dirname_from_objname "$objname")
   if [ -z "$dirname" ] ; then
-    printf "FATAL: %s: Unable to determine dirname from OBJNAME %s" $filename $objname
+    printf "FATAL: %s: Unable to determine dirname from OBJNAME %s\n" $filename "$objname"
     exit 1
   fi
   echo $dirname
